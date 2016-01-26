@@ -107,7 +107,7 @@ function processInput(input) {
 const { left, right } = processInput(input);
 ```
 
-#对象
+##对象
 单行定义的对象，最后一个成员不以逗号结尾。多行定义的对象，最后一个成员以逗号结尾。
 ```js
 // bad
@@ -183,7 +183,7 @@ const atom = {
 };
 ```
 
-#数组
+##数组
 使用扩展运算符（...）拷贝数组。
 ```js
 // bad
@@ -204,7 +204,7 @@ const foo = document.querySelectorAll('.foo');
 const nodes = Array.from(foo);
 ```
 
-#函数
+##函数
 立即执行函数可以写成箭头函数的形式。
 ```js
 (() => {
@@ -278,7 +278,7 @@ function handleThings(opts = {}) {
 }
 ```
 
-#Map解构
+##Map解构
 注意区分Object和Map，只有模拟实体对象时，才使用Object。如果只是需要key: value的数据结构，使用Map结构。因为Map有内建的遍历机制。
 ```js
 let map = new Map(arr);
@@ -296,7 +296,7 @@ for (let item of map.entries()) {
 }
 ```
 
-#Class
+##Class
 总是用Class，取代需要prototype的操作。因为Class的写法更简洁，更易于理解。
 ```js
 // bad
@@ -341,7 +341,7 @@ class PeekableQueue extends Queue {
 }
 ```
 
-#模块
+##模块
 首先，Module语法是JavaScript模块的标准写法，坚持使用这种写法。使用import取代require。
 ```js
 // bad
@@ -403,7 +403,7 @@ const StyleGuide = {
 export default StyleGuide;
 ```
 
-#ESLint的使用
+##ESLint的使用
 ESLint是一个语法规则和代码风格的检查工具，可以用来保证写出语法正确、风格统一的代码。
 
 首先，安装ESLint。
