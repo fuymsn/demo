@@ -63,7 +63,7 @@ const b = `foo${a}bar`;
 const c = 'foobar';
 ```
 
-#解构赋值
+##解构赋值
 使用数组成员对变量赋值时，优先使用解构赋值。
 ```js
 const arr = [1, 2, 3, 4];
