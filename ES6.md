@@ -276,3 +276,66 @@ function handleThings(opts = {}) {
   // ...
 }
 ```
+
+#Map解构
+注意区分Object和Map，只有模拟实体对象时，才使用Object。如果只是需要key: value的数据结构，使用Map结构。因为Map有内建的遍历机制。
+```js
+let map = new Map(arr);
+
+for (let key of map.keys()) {
+  console.log(key);
+}
+
+for (let value of map.values()) {
+  console.log(value);
+}
+
+for (let item of map.entries()) {
+  console.log(item[0], item[1]);
+}
+```
+
+#Class
+总是用Class，取代需要prototype的操作。因为Class的写法更简洁，更易于理解。
+```js
+// bad
+function Queue(contents = []) {
+  this._queue = [...contents];
+}
+Queue.prototype.pop = function() {
+  const value = this._queue[0];
+  this._queue.splice(0, 1);
+  return value;
+}
+
+// good
+class Queue {
+  constructor(contents = []) {
+    this._queue = [...contents];
+  }
+  pop() {
+    const value = this._queue[0];
+    this._queue.splice(0, 1);
+    return value;
+  }
+}
+```
+使用extends实现继承，因为这样更简单，不会有破坏instanceof运算的危险。
+```js
+// bad
+const inherits = require('inherits');
+function PeekableQueue(contents) {
+  Queue.apply(this, contents);
+}
+inherits(PeekableQueue, Queue);
+PeekableQueue.prototype.peek = function() {
+  return this._queue[0];
+}
+
+// good
+class PeekableQueue extends Queue {
+  peek() {
+    return this._queue[0];
+  }
+}
+```
